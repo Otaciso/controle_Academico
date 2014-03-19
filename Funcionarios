@@ -1,4 +1,4 @@
-public class Funcionarios extends Pessoa{
+public class Funcionario extends Pessoa{
     private Aluno[] alunos;
     private Professor[] professores;
     private Disciplina[] disciplinas;
@@ -6,7 +6,7 @@ public class Funcionarios extends Pessoa{
     private int contadorAluno;
     private int contadorDisciplina;
     
-    public Funcionarios(int numAlunos, int numDisciplinas, int numProfessores){
+    public Funcionario(int numAlunos, int numDisciplinas, int numProfessores){
         alunos = new Aluno[numAlunos];
         professores = new Professor[numProfessores]; 
         disciplinas = new Disciplina[numDisciplinas];        
