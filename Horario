@@ -1,0 +1,29 @@
+public class Horario {
+	private String diaDaSemana;
+	private int horaInicio;
+	private int horaFim;
+	
+	public String getDiaDaSemana(){
+		return this.diaDaSemana;
+	}
+	
+	public void setDiaDaSemana(String diaDaSemana){
+		this.diaDaSemana = diaDaSemana;
+	}
+	
+	public int getHoraInicio(){
+		return this.horaInicio;
+	}
+	
+	public void setHoraInicio(int horaInicio){
+		this.horaInicio = horaInicio;
+	}
+	
+	public int getHoraFim(){
+		return this.horaFim;
+	}
+	
+	public void setHoraFim(int horaFim){
+		this.horaFim = horaFim;
+	}
+}
