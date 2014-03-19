@@ -1,0 +1,6 @@
+public class Aluno extends Pessoa{    
+
+    public String solicitaHistorico(){
+        return "Historico";        
+    }          
+}
