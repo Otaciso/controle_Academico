@@ -1,0 +1,252 @@
+/**
+ * A classe de teste FuncionariosTest.
+ *
+ * @author  (Otaciso da Silva)
+ * @version (1.0)
+ */
+public class FuncionariosTest
+{
+    /**
+     * Construtor default para a classe de teste FuncionariosTest
+     */
+    public FuncionariosTest()
+    {
+    }
+
+    @Test
+    public void cadastroCompleto()
+    {
+        Funcionario funciona1 = new Funcionario(1, 1, 1);
+        funciona1.setCidade("Rio Tinto");
+        funciona1.setCpf("078.059.234-42");
+        funciona1.setMatricula("81011053");        
+        funciona1.setNome("Otaciso");
+        funciona1.setRg("3.510.411");
+        funciona1.setSexo("M");
+        funciona1.setTelefone("(83)91753896");
+        assertEquals("Rio Tinto", funciona1.getCidade());
+        assertEquals("078.059.234-42", funciona1.getCpf());
+        assertEquals("81011053", funciona1.getMatricula());
+        assertEquals("Otaciso", funciona1.getNome());
+        assertEquals("3.510.411", funciona1.getRg());
+        assertEquals("M", funciona1.getSexo());
+        assertEquals("(83)91753896", funciona1.getTelefone());
+        Aluno aluno1 = new Aluno();
+        funciona1.cadastraAluno(aluno1);
+        aluno1.setCidade("Taberaba");
+        aluno1.setCpf("422.329.058-70");
+        aluno1.setMatricula("81221040");
+        aluno1.setNome("Frederico");
+        aluno1.setRg("4.111.428");
+        aluno1.setSexo("M");
+        aluno1.setTelefone("(83)3292-3090");
+        assertEquals("Taberaba", aluno1.getCidade());
+        assertEquals("422.329.058-70", aluno1.getCpf());
+        assertEquals("81221040", aluno1.getMatricula());
+        assertEquals("Frederico", aluno1.getNome());
+        assertEquals("4.111.428", aluno1.getRg());
+        assertEquals("M", aluno1.getSexo());
+        assertEquals("(83)3292-3090", aluno1.getTelefone());        
+        Professor professo1 = new Professor();
+        funciona1.cadastraProfessor(professo1);
+        professo1.setCidade("Mamanguape");
+        professo1.setCpf("059.435.561-33");
+        professo1.setMatricula("81253088");       
+        professo1.setNome("Ana Carolina");
+        professo1.setRg("4.563.231");
+        professo1.setSexo("F");
+        professo1.setTelefone("(83)3292 6161");        
+        assertEquals("Mamanguape", professo1.getCidade());
+        assertEquals("059.435.561-33", professo1.getCpf());
+        assertEquals("81253088", professo1.getMatricula());
+        assertEquals("Ana Carolina", professo1.getNome());
+        assertEquals("4.563.231", professo1.getRg());
+        assertEquals("F", professo1.getSexo());
+        assertEquals("(83)3292 6161", professo1.getTelefone());        
+        Disciplina discipli1 = new Disciplina();
+        funciona1.cadastraDisciplinas(discipli1);
+        discipli1.setNome("Progrmação Orientada");
+        discipli1.setIdentificacao(3359);
+        discipli1.setDiaDaSemana("SEG, QUA");
+        discipli1.setHoraInicio(13);
+        discipli1.setHoraFim(17);
+        assertEquals(aluno1, funciona1.pesquisaAlunoPelaMatricula("81221040"));
+    }
+      
+    @Test
+    public void ConsultarAluno()
+    {
+        Funcionario funciona1 = new Funcionario(1, 1, 1);
+        Aluno aluno1 = new Aluno();
+        aluno1.setCidade("Mamanguape");
+        aluno1.setCpf("091.199.804-77");
+        aluno1.setMatricula("80911047");
+        aluno1.setNome("Marcos Dantas");
+        aluno1.setRg("3.451.843");
+        aluno1.setSexo("M");
+        aluno1.setTelefone("(83)32912430");
+        assertEquals("Mamanguape", aluno1.getCidade());
+        assertEquals("091.199.804-77", aluno1.getCpf());
+        assertEquals("80911047", aluno1.getMatricula());
+        assertEquals("Marcos Dantas", aluno1.getNome());
+        assertEquals("3.451.843", aluno1.getRg());
+        assertEquals("M", aluno1.getSexo());
+        assertEquals("(83)32912430", aluno1.getTelefone());        
+        funciona1.cadastraAluno(aluno1);
+        assertEquals(aluno1, funciona1.pesquisaAlunoPelaMatricula("80911047"));
+    }
+
+    @Test
+    public void FazerCadastroCompletoEConsutarAluno()
+    {
+        Funcionario funciona1 = new Funcionario(1, 1, 1);
+        funciona1.setCidade("Mamanguape");
+        funciona1.setCpf("086.000.805-77");
+        funciona1.setMatricula("11189056");
+        funciona1.setNome("Jonas");
+        funciona1.setRg("0.097.987");
+        funciona1.setSexo("M");
+        funciona1.setTelefone("(83)99367842");
+        Aluno alunos1 = new Aluno();
+        alunos1.setCidade("João Pessoa");
+        alunos1.setCpf("999.000.345-45");
+        alunos1.setMatricula("00012349");
+        alunos1.setNome("João");
+        alunos1.setRg("1.195.123");
+        alunos1.setSexo("M");
+        alunos1.setTelefone("(83)87902134");
+        funciona1.cadastraAluno(alunos1);
+        Professor professo1 = new Professor();
+        professo1.setCidade("Recife");
+        professo1.setCpf("019.123.234-89");
+        professo1.setMatricula("00134578");
+        professo1.setNome("Luan");
+        professo1.setRg("1.156.437");
+        professo1.setSexo("M");
+        professo1.setTelefone("(83)99234567");
+        funciona1.cadastraProfessor(professo1);
+        Disciplina discipli1 = new Disciplina();
+        discipli1.setIdentificacao(0123);
+        discipli1.setNome("Linguagem Programaçao");
+        discipli1.setDiaDaSemana("SEG,TER");
+        discipli1.setHoraFim(8);
+        discipli1.setHoraInicio(10);
+        funciona1.cadastraDisciplinas(discipli1);
+        assertEquals(alunos1, funciona1.pesquisaAlunoPelaMatricula("00012349"));
+    }
+
+    @Test
+    public void cadastroDoisAlunosComConfirmacao()
+    {
+        Funcionario funciona1 = new Funcionario(1, 1, 1);
+        Aluno aluno1 = new Aluno();
+        aluno1.setCidade("Rio Tinto");
+        aluno1.setCpf("058.456.532-32");
+        aluno1.setMatricula("81035455");
+        aluno1.setNome("Carlos Alberto");
+        aluno1.setRg("4.675.324");
+        aluno1.setSexo("M");
+        aluno1.setTelefone("(83)3292-2244");
+        funciona1.cadastraAluno(aluno1);
+        assertEquals("Rio Tinto", aluno1.getCidade());
+        assertEquals("058.456.532-32", aluno1.getCpf());
+        assertEquals("81035455", aluno1.getMatricula());
+        assertEquals("Carlos Alberto", aluno1.getNome());
+        assertEquals("4.675.324", aluno1.getRg());
+        assertEquals("M", aluno1.getSexo());
+        assertEquals("(83)3292-2244", aluno1.getTelefone());
+        Aluno aluno2 = new Aluno();
+        aluno2.setCidade("João Pessoa");
+        aluno2.setCpf("058.678.532-99");
+        aluno2.setMatricula("82895455");
+        aluno2.setNome("Airton Carlos");
+        aluno2.setRg("4.643.294");
+        aluno2.setSexo("M");
+        aluno2.setTelefone("(83)88923344");
+        assertEquals("João Pessoa", aluno2.getCidade());
+        assertEquals("058.678.532-99", aluno2.getCpf());
+        assertEquals("82895455", aluno2.getMatricula());
+        assertEquals("Airton Carlos", aluno2.getNome());
+        assertEquals("4.643.294", aluno2.getRg());
+        assertEquals("M", aluno2.getSexo());
+        assertEquals("(83)88923344", aluno2.getTelefone());
+        assertEquals(aluno1, funciona1.pesquisaAlunoPelaMatricula("81035455"));
+    }
+  
+    @Test
+    public void consultaProfessorEAluno()
+    {
+        Funcionario funciona1 = new Funcionario(2, 1, 2);
+        Aluno aluno1 = new Aluno();
+        aluno1.setCidade("Jacarau");
+        aluno1.setCpf("065.521.258-23");
+        aluno1.setMatricula("81034561");
+        aluno1.setNome("Maria Angela");
+        aluno1.setRg("4.567.359");
+        aluno1.setSexo("M");
+        aluno1.setSexo("F");
+        aluno1.setTelefone("(83) 81923833");
+        assertEquals("Jacarau", aluno1.getCidade());
+        assertEquals("065.521.258-23", aluno1.getCpf());
+        assertEquals("81034561", aluno1.getMatricula());
+        assertEquals("Maria Angela", aluno1.getNome());
+        assertEquals("4.567.359", aluno1.getRg());
+        assertEquals("F", aluno1.getSexo());
+        assertEquals("(83) 81923833", aluno1.getTelefone());
+        Aluno aluno2 = new Aluno();
+        aluno2.setCidade("Fortaleza");
+        aluno2.setCpf("032.732.123-51");
+        aluno2.setMatricula("81345231");
+        aluno2.setNome("Tatiana Silva");
+        aluno2.setRg("4.238.719"); 
+        aluno2.setSexo("F");
+        aluno2.setTelefone("(83) 91301324");
+        assertEquals("Fortaleza", aluno2.getCidade());
+        assertEquals("032.732.123-51", aluno2.getCpf());
+        assertEquals("81345231", aluno2.getMatricula());
+        assertEquals("Tatiana Silva", aluno2.getNome());
+        assertEquals("4.238.719", aluno2.getRg());
+        assertEquals("F", aluno2.getSexo());
+        assertEquals("(83) 91301324", aluno2.getTelefone());
+        Professor professo1 = new Professor();
+        Professor professo2 = new Professor();
+        professo1.setCidade("Guarabira");
+        professo1.setCpf("092.774.342-22");
+        professo1.setMatricula("80023456");
+        professo1.setNome("Thaise Costa");
+        professo1.setRg("7.234.543");
+        professo1.setSexo("F");
+        professo1.setTelefone("(83) 88345665");
+        assertEquals("Guarabira", professo1.getCidade());
+        assertEquals("092.774.342-22", professo1.getCpf());
+        assertEquals("80023456", professo1.getMatricula());
+        assertEquals("Thaise Costa", professo1.getNome());
+        assertEquals("7.234.543", professo1.getRg());
+        assertEquals("F", professo1.getSexo());
+        assertEquals("(83) 88345665", professo1.getTelefone());
+        professo2.setCidade("Campina Grande");
+        professo2.setCpf("034.546.789-21");
+        professo2.setMatricula("65738790");
+        professo2.setNome("Jaciana Paraiso");
+        professo2.setRg("3.456.231");
+        professo2.setSexo("F");
+        professo2.setTelefone("(83) 82459871");
+        assertEquals("Campina Grande", professo2.getCidade());
+        assertEquals("034.546.789-21", professo2.getCpf());
+        assertEquals("65738790", professo2.getMatricula());
+        assertEquals("Jaciana Paraiso", professo2.getNome());
+        assertEquals("3.456.231", professo2.getRg());
+        assertEquals("3.456.231", professo2.getRg());
+        assertEquals("F", professo2.getSexo());
+        assertEquals("(83) 82459871", professo2.getTelefone());
+        funciona1.cadastraAluno(aluno1);
+        funciona1.cadastraAluno(aluno2);
+        funciona1.cadastraProfessor(professo1);
+        funciona1.cadastraProfessor(professo2);
+        assertEquals(aluno1, funciona1.pesquisaAlunoPelaMatricula("81034561"));
+        assertEquals(professo2, funciona1.consultaProfessorPeloCpf("034.546.789-21"));
+    }
+}
+
+
+
