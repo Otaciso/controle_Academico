@@ -1,0 +1,65 @@
+public class Funcionarios extends Pessoa{
+    private Aluno[] alunos;
+    private Professor[] professores;
+    private Disciplina[] disciplinas;
+    private int contadorProfessor;
+    private int contadorAluno;
+    private int contadorDisciplina;
+    
+    public Funcionarios(int numAlunos, int numDisciplinas, int numProfessores){
+        alunos = new Aluno[numAlunos];
+        professores = new Professor[numProfessores]; 
+        disciplinas = new Disciplina[numDisciplinas];        
+    }
+    
+    public void cadastraDisciplinas(Disciplina novaDisciplina){
+        for (Disciplina disciplinaAntiga : disciplinas ){
+            if ((disciplinaAntiga != null) && (disciplinaAntiga.getIdentificacao() == novaDisciplina.getIdentificacao())){
+                return;            
+            }            
+        }
+        disciplinas[contadorDisciplina++] = novaDisciplina;    
+    }
+    
+    public void cadastraAluno(Aluno novoAluno){
+        for (Aluno alunoAntigos : alunos ){
+            if ((alunoAntigos != null) && (alunoAntigos.getCpf() == novoAluno.getCpf())){
+                return;  
+            }
+        }
+        alunos[contadorAluno++] = novoAluno;    
+    }
+    
+    public void cadastraProfessor(Professor novoProfessor){
+        for (Professor professorAntigo : professores ){
+            if ((professorAntigo != null) && (professorAntigo.getMatricula() == novoProfessor.getMatricula())){
+                return;            
+            }            
+        }
+        professores[contadorProfessor++] = novoProfessor;       
+    }
+        
+    public Aluno pesquisaAlunoPelaMatricula(String matricula){
+        for(Aluno al: this.alunos){
+              if(al.getMatricula() == matricula){
+                  return al;
+                }      
+            }
+        return null;    
+    }
+    
+    public Professor consultaProfessorPeloCpf(String cpf){
+        for(Professor pr: this.professores){
+              if(pr.getCpf() == cpf){
+                  return pr;
+                }
+            }
+        return null;    
+    }
+    
+    public String geraRelatorio(){
+        return null;
+    }
+}
+
+
